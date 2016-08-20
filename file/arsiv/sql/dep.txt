@@ -1,9 +1,0 @@
-CREATE TABLE `uni_department` (
-	`ID` INT(11) NOT NULL AUTO_INCREMENT,
-	`faculty_id` INT(11) NULL DEFAULT NULL,
-	`department_name` VARCHAR(255) NULL DEFAULT NULL COLLATE 'utf8_turkish_ci',
-	PRIMARY KEY (`ID`)
-)
-COLLATE='utf8_turkish_ci'
-ENGINE=InnoDB
-;
