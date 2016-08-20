@@ -11,11 +11,11 @@
           title="Remark"> -->
           <span class="navbar-brand-text"> Logo</span>
         </a>
-        <button type="button" class="navbar-toggle collapsed" data-target="#site-navbar-search"
+        <!-- <button type="button" class="navbar-toggle collapsed" data-target="#site-navbar-search"
         data-toggle="collapse">
         <span class="sr-only">Araştır..</span>
         <i class="icon wb-search" aria-hidden="true"></i>
-        </button>
+        </button> -->
       </div>
       <div class="navbar-container container-fluid">
         <div class="collapse navbar-collapse navbar-collapse-toolbar navbar-toolbar navbar-right navbar-toolbar-right" id="site-navbar-collapse">
@@ -28,44 +28,32 @@
                 </i>
               </a>
             </li>
-            <li class="hidden-float">
+            <!-- <li class="hidden-float">
               <a class="icon wb-search" data-toggle="collapse" href="#" data-target="#site-navbar-search"
                 role="button">
                 <span class="sr-only">Araştır</span>
               </a>
-            </li>
+            </li> -->
           </ul>
           <ul class="nav navbar-toolbar">
             <li class="site-menu-item">
-              <a href="<?=base_url()?>/universiteler">
+              <a href="<?=base_url()?>universiteler">
                 <i class="icon wb-bookmark"></i>
                 <span class="site-menu-title">Üniversiteler</span>
               </a>
             </li>
-            <li class="site-menu-item">
-              <a href="<?=base_url()?>universite">
-                <i class="icon wb-extension"></i>
-                <span class="site-menu-title">Universite_demo</span>
-              </a>
-            </li>
-            <li class="site-menu-item">
+            <!-- <li class="site-menu-item">
               <a href="#">
                 <i class="icon wb-extension"></i>
                 <span class="site-menu-title">Video</span>
               </a>
-            </li>
-            <li class="site-menu-item ">
+            </li> -->
+            <!-- <li class="site-menu-item ">
               <a href="#">
                 <i class="icon wb-grid-4" ></i>
                 <span class="site-menu-title">Keşfet</span>
               </a>
-            </li>
-            <li class="site-menu-item">
-              <a href="<?=base_url()?>cagan">
-                <i class="icon wb-bookmark"></i>
-                <span class="site-menu-title">Çağan</span>
-              </a>
-            </li>
+            </li> -->
           </ul>
         </div>
         <div class="collapse navbar-search-overlap" id="site-navbar-search">

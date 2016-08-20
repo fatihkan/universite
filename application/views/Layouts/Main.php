@@ -109,9 +109,14 @@ $this->load->view($template."/".$page);
       <div class="site-footer-right">
         Crafted with <i class="red-600 wb wb-heart"></i> by <a href="">Monopoltech</a>
       </div>
+          <div id="example5"></div>
+
     </footer>
     <!-- Core  -->
-    <script src="http://maps.google.com/maps/api/js?sensor=false"></script>
+  <script async defer
+        src="https://maps.googleapis.com/maps/api/js?&callback=onMapsReady&language=tr&key=AIzaSyA9-vlAGh_SY98dHMsjPR4tLPsOuLdPsbo">
+    </script>
+    <!-- <script src="http://maps.google.com/maps/api/js?sensor=false"></script> -->
     <script src="<?=base_url();?>file/global/vendor/jquery/jquery.js"></script>
     <script src="<?=base_url();?>file/global/vendor/bootstrap/bootstrap.js"></script>
     <script src="<?=base_url();?>file/global/vendor/animsition/animsition.js"></script>
@@ -167,6 +172,7 @@ $this->load->view($template."/".$page);
     <script src="<?=base_url();?>file/global/vendor/nestable/jquery.nestable.js"></script>
     <script src="<?=base_url();?>file/global/vendor/aspieprogress/jquery-asPieProgress.js"></script>
     <script src="<?=base_url();?>file/global/vendor/gmaps/gmaps.js"></script>
+
 
     <!-- Scripts -->
     <script src="<?=base_url();?>file/global/js/core.js"></script>
@@ -228,6 +234,22 @@ $this->load->view($template."/".$page);
     var Site = window.Site;
     $(document).ready(function() {
     Site.run();
+<?php if ($page == 'Home_View'):?>
+var left = $('#box').position().left;
+    var top = $('#box').position().top;
+    var width = $('#box').width();
+
+    $('#search_result').css('left', left).css('top', top+32).css('width', width);
+
+    $('#search_box').keyup(function(){
+        var value = $(this).val();
+        if(value != ''){
+            $.post('search.php',{value: value},function(data){
+                    $('#search_result').html(data);
+            });
+        }
+    });
+<?php endif?>
 <?php if ($page == 'Uni_Detay_View'):?>
      (function() {
       var simpleMap = new GMaps({
@@ -235,16 +257,16 @@ $this->load->view($template."/".$page);
         zoom: 16,
         zoomControl: true,
         center: {
-          lat: <?=$Uni_info->Uni_Latitude?>,
-          lng: <?=$Uni_info->Uni_Longitude?>
+          lat: <?=$Uni_info->latitude?>,
+          lng: <?=$Uni_info->longitude?>
         }
       });
     })();
     (function() {
       var panorama = GMaps.createPanorama({
         el: '#panoramasGmap',
-        lat: <?=$Uni_info->Uni_Latitude?>,
-        lng: <?=$Uni_info->Uni_Longitude?>
+        lat: <?=$Uni_info->latitude?>,
+        lng: <?=$Uni_info->longitude?>
 });
     })();
 <?php endif?>

@@ -6,24 +6,24 @@ class Model_Universite extends CI_Model {
 
   function Uni_info($uni_id)
   {
-      $this->db->where('ID', $uni_id);
-      $data = $this->db->get('uni_info');
+      $this->db->where('id', $uni_id);
+      $data = $this->db->get('University');
       if ($data->num_rows() == 1) {
           return $data->row();
       }
   }
   function Uni_id($name)
   {
-    $this->db->where('Uni_Url', $name);
-      $data = $this->db->get('uni_info');
+    $this->db->where('url', $name);
+      $data = $this->db->get('University');
       if ($data->num_rows() == 1) {
-          return $data->row()->ID;
+          return $data->row()->id;
       }
   }
   function Camp_info($uni_id)
   {
     $this->db->where('Uni_id',$uni_id);
-    $data = $this->db->get('uni_campus');
+    $data = $this->db->get('Campuses');
     if($data->num_rows() >0){
       return $data->result();;
     }
@@ -31,8 +31,8 @@ class Model_Universite extends CI_Model {
   function Camp_id($uni_id)
   {
     $this->db->where('Uni_ID', $uni_id);
-    $this->db->select('ID');
-    $data = $this->db->get('uni_campus');
+    $this->db->select('id');
+    $data = $this->db->get('Campuses');
     if ($data->num_rows()> 0) {
         return $data->result();
     }
@@ -40,8 +40,8 @@ class Model_Universite extends CI_Model {
   function Faculty_info($cam_id)
   {
     foreach ($cam_id as $row) {
-      $this->db->where('Cam_ID', $row->ID);
-      $data = $this->db->get('uni__campus_faculty');
+      $this->db->where('camp_id', $row->id);
+      $data = $this->db->get('Faculties');
       if ($data->num_rows()>0) {
         $d[]= $data->result();
       }
@@ -51,9 +51,9 @@ class Model_Universite extends CI_Model {
   function Faculty_id($cam_id)
   {
     foreach ($cam_id as $row) {
-      $this->db->where('Cam_ID', $row->ID);
-      $this->db->select('ID');
-      $data = $this->db->get('uni__campus_faculty');
+      $this->db->where('camp_id', $row->id);
+      $this->db->select('id');
+      $data = $this->db->get('Faculties');
       if ($data->num_rows()>0) {
         $ID[] = $data->result();
       }
@@ -65,8 +65,8 @@ class Model_Universite extends CI_Model {
     $d = array();
     foreach ($faculty_id as $key => $value) {
       foreach ($value as $row ) {
-        $this->db->where('faculty_id', $row->ID);
-        $data = $this->db->get('uni_department');
+        $this->db->where('fac_id', $row->id);
+        $data = $this->db->get('Departments');
         if ($data->num_rows()>0) {
           $d[] = $data->result();
         }
@@ -76,9 +76,9 @@ class Model_Universite extends CI_Model {
   }
   function Departmnet_id($faculty_id)
   {
-    $this->db->where('faculty_id', $faculty_id);
-    $this->db->select('ID');
-    $data = $this->db->get('uni_department');
+    $this->db->where('fac_id', $faculty_id);
+    $this->db->select('id');
+    $data = $this->db->get('Departments');
     if ($data->num_rows()>0) {
       return $data->result();
     }

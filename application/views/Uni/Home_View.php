@@ -34,10 +34,13 @@
             <div class="tab-pane active" id="Universite" role="tabpanel">
               <div class="col-md-10">
                 <select class="form-control" multiple data-plugin="select2">
-                  <optgroup label="Alaskan/Hawaiian Time Zone">
+                <?php foreach ($Uni_List as $uni): ?>
+                  <option value="<?=$uni->url?>"><?=$uni->name?></option>
+                <?php endforeach ?>
+                  <!-- <optgroup label="Alaskan/Hawaiian Time Zone">
                     <option value="AK">Odtu</option>
                     <option value="HI">itu</option>
-                  </optgroup>
+                  </optgroup> -->
                 </select>
               </div>
               <button type="button" class="btn btn-default btn-success">Araştır</button>
@@ -45,12 +48,15 @@
             <div class="tab-pane" id="Bolum" role="tabpanel">
               <div class="col-md-10">
                 <select class="form-control" multiple data-plugin="select2">
-                  <optgroup label="Alaskan/Hawaiian Time Zone">
+                <?php foreach ($Bolum_List as $bolum): ?>
+                  <option value="<?=$bolum->name?>"><?=$bolum->name?></option>
+                <?php endforeach ?>
+                 <!--  <optgroup label="Alaskan/Hawaiian Time Zone">
                     <option value="AK">Bilgisayar</option>
                     <option value="HI">Fizik</option>
-                  </optgroup>
+                  </optgroup> -->
                 </select>
-              </div>
+              </div>Puan_Tur
               <button type="button" class="btn btn-default btn-success">Araştır</button>
             </div>
             <div class="tab-pane" id="Puan" role="tabpanel">
@@ -59,11 +65,9 @@
               </div>
               <div class="col-md-5">
                 <select class="form-control">
-                  <option>Dil</option>
-                  <option>2</option>
-                  <option>3</option>
-                  <option>4</option>
-                  <option>5</option>
+                <?php foreach ($Puan_Tur as $Puan): ?>
+                  <option value="<?=$Puan->score_type?>"><?=$Puan->score_type?></option>
+                <?php endforeach ?>
                 </select>
               </div>
               <button type="button" class="btn btn-default btn-success">Araştır</button>
